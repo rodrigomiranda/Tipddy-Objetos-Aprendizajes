@@ -1,0 +1,65 @@
+<?php
+   
+  namespace Tipddy\OABundle\Entity;
+
+  use Doctrine\ORM\Mapping as ORM;
+  use Symfony\Component\Validator\Constraints as Assert; 
+
+/**
+ * @ORM\Table(name="termino_arbol")
+ * @ORM\Entity
+ */
+class TerminoArbol {
+    
+    /**
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * 
+     */
+     private $id;
+     
+    /**
+     * 
+     * @ORM\Column(name="taxonomia", type="string", length=32, nullable=false)
+     * @Assert\NotBlank(message="Campo obligatorio")
+     * @Assert\Type(type="string", message="El valor {{ value }} no es {{ type }}")
+     */
+     private $taxonomia;
+     
+    /**
+     * 
+     * @ORM\Column(name="descripcion", type="text", nullable=false)
+     * @Assert\NotBlank(message="Campo obligatorio")
+     * @Assert\Type(type="string", message="El valor {{ value }} no es {{ type }}")
+     */
+     private $descripcion;
+     
+    /**
+     *
+     * @ORM\Column(name="parent", type="bigint", nullable=false)
+     * 
+     */
+     private $parent;
+     
+     
+    /**
+     *
+     * @ORM\Column(name="count", type="bigint", nullable=false)
+     * 
+     */
+     private $count;
+     
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="Termino", inversedBy="terminosArbol", cascade={"remove"})
+     * @ORM\JoinColumns({
+     * @ORM\JoinColumn(name="termino_id", referencedColumnName="id")
+     * })
+     */
+     private $termino;
+
+    
+    
+}

@@ -1,0 +1,30 @@
+objetoaprendizaje:
+    pattern:  /
+    defaults: { _controller: "TipddyOABundle:ObjetoAprendizaje:index" }
+
+objetoaprendizaje_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "TipddyOABundle:ObjetoAprendizaje:show" }
+
+objetoaprendizaje_new:
+    pattern:  /new
+    defaults: { _controller: "TipddyOABundle:ObjetoAprendizaje:new" }
+
+objetoaprendizaje_create:
+    pattern:  /create
+    defaults: { _controller: "TipddyOABundle:ObjetoAprendizaje:create" }
+    requirements: { _method: post }
+
+objetoaprendizaje_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "TipddyOABundle:ObjetoAprendizaje:edit" }
+
+objetoaprendizaje_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "TipddyOABundle:ObjetoAprendizaje:update" }
+    requirements: { _method: post }
+
+objetoaprendizaje_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "TipddyOABundle:ObjetoAprendizaje:delete" }
+    requirements: { _method: post }

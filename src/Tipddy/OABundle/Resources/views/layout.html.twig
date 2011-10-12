@@ -1,0 +1,64 @@
+{% extends '::base_admin.html.twig' %}
+
+{% block stylesheets %}
+ {{ parent() }}
+ <link href="{{ asset('bundles/tipddyoa/js/vendor/fancybox/jquery.fancybox-1.3.4.css') }}" rel="stylesheet" type="text/css" />     
+{% endblock %}
+{% block javascripts_header %} 
+ <script type="text/javascript" src="{{ asset('bundles/tipddyoa/js/vendor/jquery-1.6.2.min.js') }}"></script>
+ <script type="text/javascript" src="{{ asset('bundles/tipddyoa/js/vendor/fancybox/jquery.easing-1.3.pack.js')}}"></script> 
+ <script type="text/javascript" src="{{ asset('bundles/tipddyoa/js/vendor/fancybox/jquery.mousewheel-3.0.4.pack.js')}}"></script> 
+ <script type="text/javascript" src="{{ asset('bundles/tipddyoa/js/vendor/fancybox/jquery.fancybox-1.3.4.pack.js')}}"></script>
+         
+ <script type="text/javascript" src="{{ asset('bundles/tipddyoa/js/listados.js') }}"></script>
+ <script type="text/javascript" src="{{ asset('bundles/tipddyoa/js/app-modal.js') }}"></script> 
+
+{% endblock%}
+
+
+{% block menu_header_izquierdo %}
+  
+  <span class="topBarElem">
+     <b>Tú Panel</b>
+  </span>
+|
+  <span class="topBarElem">
+{#      <a href="{{ path('sugerencias_nuevo', {'iframe' : true }) }}"  class="iframe" title="Envíanos comentarios, sugerencias o Pídenos ayuda ">Envíanos comentarios, sugerencias o Pídenos Ayuda</a>#}
+  </span>
+  
+{% endblock %}
+
+{% block menu_header_derecho %}
+   
+   |
+ {#  
+   <span class="topBarElem">!Hola, {{ app.user.nombreCompleto }} </span> |<span> Tipo Usuario: {{ app.user.tipoUsuario }}</span> |<span> Organización: {{ app.user.organizacion }} </span>
+ 
+   <span class="topBarElem">
+   | <a href="{{ path('logout')}}">Desconectar</a>
+   </span>  
+#}
+
+{% endblock %}
+   
+{% block  menu_principal %}
+
+   
+{% endblock %}
+    
+{% block submenu_principal %}
+   
+    
+ {% endblock %}
+    
+    
+    
+{% block footer %}
+    <hr />
+    <div>Versión Gestor OA 1.0.1</div>
+    <div>
+        <a><img src="{{ asset('bundles/tipddyoa/images/logo-tipddy.png') }}" border="0" /></a>
+         &copy; 2011 - Tipddy | info@tipddy.cl
+    </div>
+    
+{% endblock %}

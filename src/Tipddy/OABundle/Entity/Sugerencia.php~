@@ -1,0 +1,56 @@
+<?php
+
+namespace Tipddy\OABundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert; 
+
+
+/**
+ * @ORM\Table(name="sugerencia")
+ * @ORM\Entity
+ */
+class Sugerencia {
+    
+    /**
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * 
+     */
+     private $id;
+     
+     
+    /**
+     * 
+     * @ORM\Column(name="informacion", type="text", nullable=false)
+     * @Assert\NotBlank(message="Campo obligatorio")
+     * @Assert\Type(type="string", message="El valor {{ value }} no es {{ type }}")
+     */
+     private $informacion;
+     
+     
+     
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="TipoSugerencia", inversedBy="sugerencias", cascade={"remove"})
+     * @ORM\JoinColumns({
+     * @ORM\JoinColumn(name="tipo_sugerencia_id", referencedColumnName="id")
+     * })
+     */
+     private $tipoSugerencia;
+     
+     
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="sugerencias", cascade={"remove"})
+     * @ORM\JoinColumns({
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     * })
+     */
+     private $usuario;
+
+    
+    
+}

@@ -1,0 +1,4 @@
+TipddyOABundle_objetoaprendizaje:
+    resource: "@TipddyOABundle/Resources/config/routing/objetoaprendizaje.yml"
+    prefix:   /objetoaprendizaje
+

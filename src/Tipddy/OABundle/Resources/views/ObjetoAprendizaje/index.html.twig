@@ -1,0 +1,45 @@
+{% extends 'TipddyOABundle::layout.html.twig' %} 
+
+{% block contenido %}
+<h1>Objetos de Aprendizajes</h1>
+<table id="tabla-listado"  class="listado post fixed" cellspacing="0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Título</th>
+            <th>Derechos</th>
+            <th>Version</th>
+            <th>Autores</th>
+            <th>Referencia</th>
+            <th>Fecha Subida</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('objetoaprendizaje_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.titulo }}</td>
+            <td>{{ entity.derechos }}</td>
+            <td>{{ entity.version }}</td>
+            <td>{{ entity.autores }}</td>
+            <td>{{ entity.referencia }}</td>
+            <td>{% if entity.fechaUltSubida %}{{ entity.fechaUltSubida|date('Y-m-d H:i:s') }}{% endif%}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('objetoaprendizaje_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('objetoaprendizaje_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
+

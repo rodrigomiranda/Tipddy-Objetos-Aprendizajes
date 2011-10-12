@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Gestor de Objetos de Aprendizajes{% endblock %} | tipddy.cl</title>
+  <meta name="description" content="{% block metadesc %}Gestor de Objetos de Aprendizajes para Entidades Educacionales{% endblock %}" />
+  {% block stylesheets %}
+     <link href="{{ asset('bundles/tipddyoa/css/admin.css') }}" rel="stylesheet" type="text/css" />  
+  {% endblock %}
+
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+  {% block javascripts_header%}{% endblock %}
+</head>
+<body id="">
+ 
+    <!-- maqueteando 1 -->
+     <div id="root">
+       <div id="topBars">
+           <div id="topLeftBar">
+              {% block menu_header_izquierdo %}{% endblock %} 
+                
+            </div>
+           <div id="topRightBar">
+               {% block menu_header_derecho %}{% endblock %}                
+           </div>
+       </div>
+       <div id="header">
+             <span id="logo"></span>
+       </div>
+       <div>
+           {% block menu_principal %} {% endblock %}  
+       </div>   
+
+       <div class="page">
+           <div class="pageWrap">
+              <div class="nav_sep">
+                 <div id="top_nav">
+                    {% block submenu_principal %}  {% endblock %} 
+                 </div>
+              </div>
+              <div id="dashboard">
+                 <br class="clearfloat" />
+                 
+                 {% block menu_izquierdo_categorias %}
+                  
+                 
+                 {% endblock %}
+                  
+                 <div id="contenido" class="{{ app.session.hasFlash('menu_izq') ? 'width-contenido-menu' : 'width-contenido' }}">
+                      {% block contenido %} {% endblock contenido %}                          
+                 </div>
+                     <br class="clearfloat" />
+          </div>  <!-- /dasboard -->                
+      </div>
+    </div>
+         
+ </div>
+    
+  <div id="footer">
+ {% block footer %} {% endblock %}
+  </div>   
+    
+ {% block javascripts_footer%}{% endblock %}
+</body>
+</html>

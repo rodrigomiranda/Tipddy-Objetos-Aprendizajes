@@ -1,4 +1,8 @@
-# Internal routing configuration to handle ESI
-#_internal:
-#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#   prefix:   /_internal
+TipddyOABundle:
+    resource: "@TipddyOABundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+RoutingBundle::
+  resource: "@TipddyOABundle/Resources/config/routing.yml"
+  prefix:   /

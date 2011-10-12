@@ -1,0 +1,49 @@
+<?php
+
+namespace Tipddy\OABundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert; 
+
+
+/**
+ * @ORM\Table(name="termino")
+ * @ORM\Entity
+ */
+class Termino {
+    
+    /**
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * 
+     */
+     private $id;
+     
+    /**
+     * 
+     * @ORM\Column(name="etiqueta", type="string", length=200, nullable=false)
+     * @Assert\NotBlank(message="Campo obligatorio")
+     * @Assert\Type(type="string", message="El valor {{ value }} no es {{ type }}")
+     */
+     private $etiqueta;
+     
+    /**
+     * 
+     * @ORM\Column(name="slug", type="string", length=200, nullable=false)
+     * @Assert\NotBlank(message="Campo obligatorio")
+     * @Assert\Type(type="string", message="El valor {{ value }} no es {{ type }}")
+     */
+     private $slug;
+     
+    /**
+     * @ORM\OneToMany(targetEntity="TerminoArbol", mappedBy="termino")
+     */
+     private $terminosArbol;
+     
+
+     
+    
+    
+} 

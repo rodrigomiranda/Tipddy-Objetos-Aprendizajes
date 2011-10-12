@@ -1,0 +1,69 @@
+<h1>ObjetoAprendizaje</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Titulo</th>
+            <td>{{ entity.titulo }}</td>
+        </tr>
+        <tr>
+            <th>Requerimientos</th>
+            <td>{{ entity.requerimientos }}</td>
+        </tr>
+        <tr>
+            <th>Derechos</th>
+            <td>{{ entity.derechos }}</td>
+        </tr>
+        <tr>
+            <th>Version</th>
+            <td>{{ entity.version }}</td>
+        </tr>
+        <tr>
+            <th>Autores</th>
+            <td>{{ entity.autores }}</td>
+        </tr>
+        <tr>
+            <th>Disenoinstruccional</th>
+            <td>{{ entity.disenoInstruccional }}</td>
+        </tr>
+        <tr>
+            <th>Desarrolladorestecnicos</th>
+            <td>{{ entity.desarrolladoresTecnicos }}</td>
+        </tr>
+        <tr>
+            <th>Referencia</th>
+            <td>{{ entity.referencia }}</td>
+        </tr>
+        <tr>
+            <th>Path</th>
+            <td>{{ entity.path }}</td>
+        </tr>
+        <tr>
+            <th>Fechaultsubida</th>
+            <td>{{ entity.fechaUltSubida|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('objetoaprendizaje') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('objetoaprendizaje_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('objetoaprendizaje_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
